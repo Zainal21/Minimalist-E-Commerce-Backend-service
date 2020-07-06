@@ -7,5 +7,8 @@ use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
-    //
+    public function checkout()
+    {
+        // ubah status transaksi menjadi pending dan menampilkan detail transaksi 
+    }
 }
