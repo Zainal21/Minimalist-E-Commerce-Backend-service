@@ -66,7 +66,7 @@ $(document).ready(function(){
   
     
 
-function DataIMG(_base, FData) {
+function DataIMG(_base, FData,redirect ){
   $.ajax({
     url:_base,
     method:'POST',
@@ -88,7 +88,7 @@ function DataIMG(_base, FData) {
           type:'success'
         }).then(function(){
           setTimeout(() => {
-              window.location.reload();
+            window.location.href = redirect
           }, 2000);
         })
       }
@@ -124,6 +124,20 @@ $('.btn-produk-hapus').on('click', function(e){
   var id = $(this).attr('id');
   deletedata('/admin/product/delete/' + id,'/admin/product')
 });
+
+
+// galeri
+$('#Fgaleri').on('submit', function(e){
+  e.preventDefault();
+  var data = new FormData(this);
+  DataIMG('/admin/gallery/create', data, '/admin/gallery')
+});
+
+$('.btn-galeri').on('click', function(e){
+    e.preventDefault();
+    var id = $(this).attr('id');
+    deletedata('/admin/gallery/delete/' + id,'/admin/gallery' );
+})
 
 
 

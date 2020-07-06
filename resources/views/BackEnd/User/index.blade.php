@@ -27,13 +27,19 @@
               </thead>
               
               <tbody>
+                @forelse ($user as $item)
                 <tr>
-                  <td>1</td>
-                  <td>Muhamad Zainal Arifin</td>
-                  <td>Zainalarifin080718@gmail.com</td>
-                  <td>User</td>
+                  <td>{{$loop->iteration}}</td>
+                  <td>{{$item->name}}</td>
+                  <td>{{$item->email}}</td>
+                  <td>{{$item->role}}</td>
                   <td><a href="" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a><a href="" class="btn btn-sm btn-outline-danger mx-2"><i class="fas fa-trash"></i></a></td>
                 </tr>
+                @empty
+                <tr>
+                  <td colspan="4" class="text-center"> Data Tidak Tersedia</td>
+                </tr>
+                @endforelse
               </tbody>
             </table>
           </div>

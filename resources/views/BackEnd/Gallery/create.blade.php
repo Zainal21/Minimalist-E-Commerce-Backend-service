@@ -15,14 +15,24 @@
         Tambah Data Galeri
       </div>
       <div class="card-body">
+       <form action="" method="post" enctype="multipart/form-data" id="Fgaleri">
+        @csrf
         <label for="">Nama produk</label>
-        <select name="" class="form-control" id="">
-          <option value="" class="form-control">- Pilih Produk -</option>
+        <select name="products_id" class="form-control" id="">
+       @forelse ($product as $item)
+        <option value="{{$item->id}}" class="form-control">{{$item->nama_produk}}</option>
+        
+        @empty
+        <option value="" class="form-control">- Data Produk Tidak Tersedia -</option>
+           
+       @endforelse
+        
         </select>
         <label for="" class="mt-1">Gambar</label>
-        <input type="file" name="" class="form-control img-preview" id="">
+        <input type="file" name="foto" class="form-control img-preview" id="" required>
         <input type="submit" name="" value="Simpan"  class="btn btn-success mt-2" id="">
-      <a href="{{url('admin/gallery')}}" class="btn btn-danger mt-2">Kembali</a>
+       <a href="{{url('admin/gallery')}}" class="btn btn-danger mt-2">Kembali</a>
+       </form>
       </div>
     </div>
     </div>

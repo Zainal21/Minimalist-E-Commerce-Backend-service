@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\product_gallery;
+use Validator;
 class GalleryController extends Controller
 {
     /**
@@ -13,7 +14,8 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        return view('BackEnd.Gallery.index');
+        $data['galeri'] = product_gallery::with(['product'])->get();
+        return view('BackEnd.Gallery.index', $data);
     }
 
     /**
@@ -23,7 +25,8 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('BackEnd.Gallery.create');
+        $data['product'] = \App\product::all();
+        return view('BackEnd.Gallery.create',$data);
     }
 
     /**
@@ -34,41 +37,12 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        $file = $request->file('foto')->store('uploads/galeri', 'public');
+        product_gallery::create([
+            'products_id' => $request->products_id,
+            'foto' => $file 
+        ]);
+        return response()->json(['success' => 'Data Galeri Berhasil Ditambahkan ke Database']);
     }
 
     /**
@@ -79,6 +53,7 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        product_gallery::destroy($id);
+        return response()->json(['success' => 'Data Galeri Berhasil dihapus dari Database']);
     }
 }

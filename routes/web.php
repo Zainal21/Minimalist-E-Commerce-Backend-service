@@ -23,16 +23,20 @@ Route::post('/panel/login', 'AuthAdminController@login');
 
   Route::group(['prefix' => 'admin'], function(){
   Route::get('/', 'DashboardController@index');
-  Route::get('/user', 'UserController@index');
+  Route::get('/user', 'UserController@index');\
+  // produk
   Route::get('/product', 'ProductController@index');
   Route::get('/product/create', 'ProductController@create');
   Route::post('/product/create', 'ProductController@store');
   Route::get('/product/edit/{id}', 'ProductController@edit');
   Route::post('/product/update/{id}', 'ProductController@update');
   Route::get('/product/delete/{id}', 'ProductController@destroy');
- 
+//  gallery
   Route::get('/gallery', 'GalleryController@index');
   Route::get('/gallery/create', 'GalleryController@create');
+  Route::post('/gallery/create', 'GalleryController@store');
+  Route::get('/gallery/delete/{id}', 'GalleryController@destroy');
+
   Route::get('/transaction', 'TransactionController@index');
 
 

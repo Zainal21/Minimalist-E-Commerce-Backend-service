@@ -17,7 +17,7 @@
       </div>
       <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="dataTable"  cellspacing="0">
               <thead>
                 <tr>
                   <th>No</th>
@@ -29,10 +29,18 @@
           
               <tbody>
                 <tr>
-                  <td>Tiger Nixon</td>
-                  <td>System Architect</td>
-                  <td><td><a href="" class="btn btn-sm btn-outline-primary mx-2 my-2"><i class="fas fa-edit"></i></a><a href="" class="btn btn-sm btn-outline-danger my-2 mx-2"><i class="fas fa-trash"></i></a></td>
-                </td>
+                 @forelse ($galeri as $item)
+                     
+                 
+                 <td>{{$loop->iteration}}</td>
+                 <td>{{$item->product->nama_produk}}</td>
+                 <td><img src="{{\Storage::url($item->foto)}}" width="150px" alt=""></td>
+                 <td><a href="{{url('/admin/gallery/delete/'.$item->id)}}" class="btn btn-sm btn-outline-danger btn-galeri my-2 mx-2" id="{{$item->id}}"><i class="fas fa-trash"></i></a></td>
+                 @empty
+                 <tr>
+                  <td colspan="4" class="text-center"> Data Tidak Tersedia</td>
+                </tr>
+                 @endforelse
                 </tr>
               </tbody>
             </table>
