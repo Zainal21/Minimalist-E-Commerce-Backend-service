@@ -5,14 +5,14 @@
     
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Data Produk</h1>
+    <h1 class="h3 mb-0 text-gray-800">Master Data</h1>
   </div>
   <!-- Content Row -->
   <div class="row">
     <div class="col">
       <div class="card">
       <div class="card-header">
-          Master Data Produk
+         Data Produk
       <a href="{{url('admin/product/create')}}" class="btn btn-sm btn-primary float-right"><i class="fas fa-plus"></i> Tambah Item</a>
       </div>
       <div class="card-body">
@@ -29,14 +29,20 @@
                 </tr>
               </thead>
               <tbody>
+                @forelse ($product as $item)
                 <tr>
-                  <th>1</th>
-                  <th>Baju Gucci</th>
-                  <th>Baju</th>
-                  <th>21</th>
-                  <th>21000000</th>
-                  <td><a href="" class="btn btn-sm btn-outline-primary mx-2 my-2"><i class="fas fa-edit"></i></a><a href="" class="btn btn-sm btn-outline-danger my-2 mx-2"><i class="fas fa-trash"></i></a></td>
+                  <td>{{$loop->iteration}}</td>
+                  <td>{{$item->nama_produk}}</td>
+                  <td>{{$item->tipe}}</td>
+                  <td>{{$item->stok}}</td>
+                  <td>{{$item->harga}}</td>
+                <td><a href="{{url('/admin/product/edit/'. $item->id)}}" class="btn btn-sm btn-outline-primary mx-2 my-2"><i class="fas fa-edit"></i></a><a href="{{url('/admin/product/delete/'. $item->id)}}" id="{{$item->id}}" class="btn btn-sm btn-outline-danger btn-produk-hapus my-2 mx-2"><i class="fas fa-trash"></i></a></td>
                 </tr>
+                @empty
+                <tr>
+                  <td colspan="6" class="text-center"> Data Tidak Tersedia</td>
+                </tr>
+                @endforelse
               </tbody>
             </table>
           </div>

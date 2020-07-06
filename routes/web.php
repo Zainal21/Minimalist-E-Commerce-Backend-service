@@ -26,8 +26,11 @@ Route::post('/panel/login', 'AuthAdminController@login');
   Route::get('/user', 'UserController@index');
   Route::get('/product', 'ProductController@index');
   Route::get('/product/create', 'ProductController@create');
-  Route::get('/product/edit/', 'ProductController@edit');
-
+  Route::post('/product/create', 'ProductController@store');
+  Route::get('/product/edit/{id}', 'ProductController@edit');
+  Route::post('/product/update/{id}', 'ProductController@update');
+  Route::get('/product/delete/{id}', 'ProductController@destroy');
+ 
   Route::get('/gallery', 'GalleryController@index');
   Route::get('/gallery/create', 'GalleryController@create');
   Route::get('/transaction', 'TransactionController@index');

@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 
   // save data
-  function savedata(_BaseUrl,data){
+  function savedata(_BaseUrl,data, redirect){
     $.ajax({
       url:_BaseUrl,
       data:data,
@@ -25,7 +25,9 @@ $(document).ready(function(){
             Swal({
               title: 'Berhasil !',
               text:data.success,
-              type:'error'
+              type:'success'
+            }).then(function(){
+              window.location.href = redirect;
             })
           }
       }
@@ -45,15 +47,15 @@ $(document).ready(function(){
     }).then((result)=>{
         if(result.value){
           $.ajax({
-            url = _url,
+            url : _url,
             method:'GET',
-            success:function(){
+            success:function(data){
               Swal({
                 title: 'Berhasil',
-                text:data.succes,
+                text:data.success,
                 type:'success',
               }).then(()=>{
-                window.location.reload();
+                  window.location.href = redirect
               });
             }
           });
@@ -94,6 +96,53 @@ function DataIMG(_base, FData) {
   })
 }
     
+
+// produk
+
+$('#FProduk').on('submit', function(e){
+  e.preventDefault();
+  if($('#btn-produk').val() == "Simpan"){
+    var data = $(this).serialize();
+    savedata('/admin/product/create', data, '/admin/product')
+  }
+})
+
+
+$('#FProduk').on('submit', function(e){
+  e.preventDefault();
+  if($('.btn-produk').val() == "Ubah"){
+    var data = $(this).serialize();
+    var id = $(this).attr('id');
+    savedata('/admin/product/update/' + id, data, '/admin/product')
+  }
+});
+
+
+
+$('.btn-produk-hapus').on('click', function(e){
+  e.preventDefault();
+  var id = $(this).attr('id');
+  deletedata('/admin/product/delete/' + id,'/admin/product')
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

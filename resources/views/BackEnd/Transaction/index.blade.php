@@ -5,14 +5,14 @@
     
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Data Transaksi</h1>
+    <h1 class="h3 mb-0 text-gray-800">Transaksi</h1>
   </div>
   <!-- Content Row -->
   <div class="row">
     <div class="col">
       <div class="card">
-      <div class="card-header">
-          Transaksi Masuk
+        <div class="card-header">
+          <h6 class="text-muted">Data Transaksi Masuk</h6>
       </div>
       <div class="card-body">
         <div class="table-responsive">

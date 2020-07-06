@@ -14,23 +14,20 @@
       
       </div>
       <div class="card-body">
-        <form action="" method="post">
+        <form action="" method="post" id="FProduk">
           @csrf
           <label for="name">Nama Produk</label>
-          <input type="text" name="" class="form-control" id="">
+        <input type="hidden" name="id" id="" class="form-control" value="{{$produk->id}}">
+        <input type="text" name="nama_produk" id="" class="form-control" value="{{$produk->nama_produk}}">
           <label for="name">Tipe</label>
-          <select name="" class="form-control" id="">
-            <option value="" class="form-control">- pilih produk -</option>
-            <option value="" class="form-control">Baju</option>
-            <option value="" class="form-control">Sneakers</option>
-          </select>
+        <input type="text" name="tipe" class="form-control" id="" value="{{$produk->tipe}}">
           <label for="description">Deskripsi Produk</label>
-          <textarea name="" class="form-control" id="" cols="30" rows="10"></textarea>
+        <textarea name="deskripsi" class="form-control" id="" cols="30" rows="10">{{$produk->deskripsi}}</textarea>
           <label for="name">Stok</label>
-          <input type="number" name="" class="form-control" id="">
+        <input type="number" name="stok" class="form-control" id="" value="{{$produk->stok}}">
           <label for="name">Harga</label>
-          <input type="number" name="" class="form-control" id="">
-          <input type="submit" value="Simpan" class="btn btn-success mt-2">
+        <input type="number" name="harga" class="form-control" id="" value="{{$produk->harga}}">
+        <input type="submit" value="Ubah" class="btn btn-success btn-produk mt-2" id="{{$produk->id}}">
         </form>
       </div>
     </div>

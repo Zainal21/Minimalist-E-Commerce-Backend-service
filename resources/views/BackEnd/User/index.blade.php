@@ -5,13 +5,13 @@
     
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Data User</h1>
+    <h1 class="h3 mb-0 text-gray-800">Master Data</h1>
   </div>
   <!-- Content Row -->
   <div class="row">
     <div class="col">
       <div class="card">
-      <div class="card-header">Master Data User  
+      <div class="card-header">Data User  
       </div>
       <div class="card-body">
         <div class="table-responsive">
