@@ -140,6 +140,14 @@ $('.btn-galeri').on('click', function(e){
 })
 
 
+// user
+
+$('.btn-user').on('click', function(e){
+  e.preventDefault();
+  var id = $(this).attr('id');
+  deletedata('/admin/user/delete/' + id,'/admin/user' )
+});
+
 
 
 

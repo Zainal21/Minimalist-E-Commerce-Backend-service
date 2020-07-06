@@ -18,38 +18,6 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -57,7 +25,13 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role = ['Admin', 'Petugas', 'User'];
+        $this->vars = [
+           'user' => User::findOrfail($id),
+           'role' => $role
+        ];
+        
+        return view('BackEnd.User.edit',$this->vars);
     }
 
     /**
@@ -80,6 +54,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return response()->json(['success' => 'Data User Berhasil Dihapus Dari Database']);
     }
 }

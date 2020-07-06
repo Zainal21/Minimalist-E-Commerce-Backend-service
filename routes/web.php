@@ -23,7 +23,9 @@ Route::post('/panel/login', 'AuthAdminController@login');
 
   Route::group(['prefix' => 'admin'], function(){
   Route::get('/', 'DashboardController@index');
-  Route::get('/user', 'UserController@index');\
+  // user
+  Route::get('/user', 'UserController@index');
+  Route::get('/user/delete/{id}', 'UserController@destroy');
   // produk
   Route::get('/product', 'ProductController@index');
   Route::get('/product/create', 'ProductController@create');

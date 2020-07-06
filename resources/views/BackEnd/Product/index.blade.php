@@ -36,7 +36,7 @@
                   <td>{{$item->tipe}}</td>
                   <td>{{$item->stok}}</td>
                   <td>{{$item->harga}}</td>
-                <td><a href="{{url('/admin/product/edit/'. $item->id)}}" class="btn btn-sm btn-outline-primary mx-2 my-2"><i class="fas fa-edit"></i></a><a href="{{url('/admin/product/delete/'. $item->id)}}" id="{{$item->id}}" class="btn btn-sm btn-outline-danger btn-produk-hapus my-2 mx-2"><i class="fas fa-trash"></i></a></td>
+                <td><a href="{{url('/admin/product/edit/'. $item->id)}}" class="btn btn-sm btn-outline-primary mx-2 my-2 rounded-circle"><i class="fas fa-edit"></i></a><a href="{{url('/admin/product/delete/'. $item->id)}}" id="{{$item->id}}" class="btn btn-sm btn-outline-danger btn-produk-hapus my-2 mx-2 rounded-circle"><i class="fas fa-trash"></i></a></td>
                 </tr>
                 @empty
                 <tr>

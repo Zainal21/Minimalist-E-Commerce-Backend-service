@@ -33,7 +33,7 @@
                   <td>{{$item->name}}</td>
                   <td>{{$item->email}}</td>
                   <td>{{$item->role}}</td>
-                  <td><a href="" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a><a href="" class="btn btn-sm btn-outline-danger mx-2"><i class="fas fa-trash"></i></a></td>
+                <td><a href="{{url('/admin/user/delete/'. $item->id)}}" class="btn btn-sm btn-outline-danger rounded-circle btn-user mx-2 my-2" id="{{$item->id}}"><i class="fas fa-trash"></i></a></td>
                 </tr>
                 @empty
                 <tr>
