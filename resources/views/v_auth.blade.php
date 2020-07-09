@@ -42,10 +42,10 @@
                   <form class="user" action="/panel/login" method="POST" id="Flogin">
                     @csrf
                     <div class="form-group">
-                      <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                      <input type="email" name="email" class="form-control " id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                     </div>
                     <div class="form-group">
-                      <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                      <input type="password" name="password" class="form-control " id="exampleInputPassword" placeholder="Password">
                     </div>
                   
                     <button type="submit" class="btn btn-success btn-user btn-block" id="btn-login">
