@@ -21,10 +21,14 @@ class AuthController extends Controller
         if($error->fails()){
             return response()->json(['error' => $error->errors()->all()],401);
         }else{
+            //add request all 
             $data = $request->all();
+            // bcrypt password
             $data['password'] = bcrypt($request->password);
             $user = User::create($data);
+            // create token
             $success['token'] = $user->createToken('nApp')->accessToken;
+            // isi name di field token dengan user name
             $success['name'] = $user->name;
 
             return response()->json(['success' => $success],200);
@@ -41,8 +45,10 @@ class AuthController extends Controller
         if($error->fails()){
             return response()->json(['error' => $error->errors()->all()],401);
         }else{
+            // cek usernya
             if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
                 $user = Auth::user();
+                // buat token saat login
                 $success['token'] = $user->createToken('nApp')->accessToken;
                 return response()->json(['success'=> $success],200);
             }else{
