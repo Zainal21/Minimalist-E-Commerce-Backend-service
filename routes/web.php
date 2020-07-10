@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'AuthAdminController@view_login')->name('login');
 Route::post('/panel/login', 'AuthAdminController@login');
 // Route::post('/panel/auth/login', 'AuthAdminController@login');
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => ['auth', 'isAdmin:Admin']], function(){
 
   Route::group(['prefix' => 'admin'], function(){
     Route::get('/', 'DashboardController@index');
