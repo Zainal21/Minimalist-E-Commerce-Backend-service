@@ -14,4 +14,10 @@ class product extends Model
     {
         return $this->hasMany(product_gallery::class, 'products_id', 'id');
     }
+    public function transaction(){
+        return $this->hasManay(transaction::class, 'product_id', 'id');
+    }
+    public function transaction_details(){
+        return $this->hasManay(transaction_details::class, 'product_id', 'id');
+    }
 }

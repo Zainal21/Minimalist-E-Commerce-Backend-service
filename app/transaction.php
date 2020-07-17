@@ -8,12 +8,19 @@ class transaction extends Model
 {
     protected $table = 'transaction';
     protected $fillable = [
-        'UUID' ,
-        'user_id' ,
-        'product_id' ,
-        'jumlah' ,
-        'total_bayar',
-        'status' ,
-        'alamat'
+        'Nama_Pemesan',
+        'Alamat',
+        'produk_id',
+        'Jumlah',
+        'Total_Bayar',
+        'status',
     ];
+    public function product()
+    {
+        return $this->belongsTo(product::class, 'product_id', 'id');
+    }
+    public function transaction_details()
+    {
+        return $this->hashMany(transaction::class,'transaction_id', 'id');
+    }
 }

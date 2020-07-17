@@ -15,16 +15,13 @@ class CreateTransactionTable extends Migration
     {
         Schema::create('transaction', function (Blueprint $table) {
             $table->id();
-            $table->BigInteger('UUID')->unique();
-            $table->UnsignedBigInteger('user_id');
-            $table->string('alamat');
-            $table->integer('jumlah');
-            $table->BigInteger('totol_bayar');
-            $table->integer('status');
+            $table->string('Nama_Pemesan');
+            $table->string('Alamat');
+            $table->unsignedBigIntger('produk_id');
+            $table->integer('Jumlah');
+            $table->integer('Total Bayar');
+            $table->string('status');
             $table->timestamps();
-        });
-        Schema::table('transaction', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
