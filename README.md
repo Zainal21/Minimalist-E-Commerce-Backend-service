@@ -19,7 +19,7 @@ Params.body:
 
 Response :
 
-![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/Apidoc/register.png)
+![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/master/Apidoc/register.png)
 
 
 
@@ -36,7 +36,7 @@ Params.body:
 
 Response :
 
-![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/Apidoc/login.png)
+![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/master/Apidoc/login.png)
 
 
 
@@ -54,7 +54,7 @@ Params.header:
 
 Response :
 
-![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/Apidoc/product.png)
+![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/master/Apidoc/product.png)
 
 
 ## Checkout 
@@ -83,7 +83,7 @@ body:
 
 Response :
 
-![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/Apidoc/checkout.png)
+![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/master/Apidoc/checkout.png)
 
 
 
@@ -105,7 +105,7 @@ header:
 
 Response :
 
-![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/Apidoc/detaills.png)
+![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/master/Apidoc/detaills.png)
 
 
 
