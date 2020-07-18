@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\transaction;
+use App\product;
+use DB;
+use Validator;
 class TransactionController extends Controller
 {
     /**
@@ -13,7 +16,11 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        return view('BackEnd.Transaction.index');
+        $this->vars = [
+            'transaction' => transaction::with(['product'])->get(),
+        ];
+        // dd($this->vars);
+        return view('BackEnd.Transaction.index',$this->vars);
     }
 
     /**
@@ -56,7 +63,12 @@ class TransactionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->vars = [
+            'transaction' => transaction::with(['product'])->find($id),
+            'status' => ['Pending', 'Sukses', 'Gagal'],
+        ];
+        // dd($this->vars);
+        return view('BackEnd.Transaction.edit',$this->vars);
     }
 
     /**
@@ -66,11 +78,17 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        transaction::where(['id' => $request->id])->update([
+            'status' => $request->status
+        ]);
+        // dd($request->status);
+        // dd($request->status);
+        return response()->json(['success' => 'Data Transaksi Berhasil Diubah dari Database']);
+        
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -79,6 +97,8 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        transaction::destroy($id);
+        return response()->json(['success' => 'Data Transaksi Berhasil Dihapus dari Database']);
+      
     }
 }

@@ -41,6 +41,9 @@ Route::group(['middleware' => ['auth', 'checkrole:Admin']], function(){
     Route::get('/gallery/delete/{id}', 'GalleryController@destroy');
 
     Route::get('/transaction', 'TransactionController@index');
+    Route::get('/transaction/edit/{id}', 'TransactionController@edit');
+    Route::post('/transaction/update/{id}', 'TransactionController@update');
+    Route::get('/transaction/delete/{id}', 'TransactionController@destroy');
 
 
     Route::get('/logout', 'AuthAdminController@logout');

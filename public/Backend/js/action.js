@@ -148,6 +148,20 @@ $('.btn-user').on('click', function(e){
   deletedata('/admin/user/delete/' + id,'/admin/user' )
 });
 
+// transaction
+$('#FdetailProduk').on('submit', function(e){
+  e.preventDefault();
+  var data = $(this).serialize();
+  if($('.btn-produk-edit').val() == 'Simpan') {
+    var id = $(this).attr('id');
+    savedata('/admin/transaction/update/'+id, data, '/admin/transaction')
+  }
+});
+$('.btn-transaksi-hapus').on('click', function(e){
+  e.preventDefault();
+  var id = $(this).attr('id');
+  deletedata('/admin/transaction/delete/' + id,'/admin/transaction' )
+});
 
 
 
@@ -161,16 +175,13 @@ $('.btn-user').on('click', function(e){
 
 
 
-
-
+ 
 
 
 
 
 
 });
-
-
 
 
 

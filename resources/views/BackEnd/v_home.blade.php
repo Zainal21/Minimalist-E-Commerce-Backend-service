@@ -6,7 +6,7 @@
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
   </div>
 
   <!-- Content Row -->
@@ -19,7 +19,7 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Transaksi Sukses</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$_transaction}}</div>
             </div>
             <div class="col-auto">
               <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -36,7 +36,7 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Keuntungan</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp . {{$_income}} , 00</div>
             </div>
             <div class="col-auto">
               <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -55,7 +55,7 @@
               <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Produk</div>
               <div class="row no-gutters align-items-center">
                 <div class="col-auto">
-                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50</div>
+                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$_product}}</div>
                 </div>
                 <div class="col">
                   <div class="progress progress-sm mr-2">
@@ -79,7 +79,7 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$_pending}}</div>
             </div>
             <div class="col-auto">
               <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -104,11 +104,36 @@
         <!-- Card Body -->
         <div class="card-body">
           <table class="table table-bordered">
+            
+            
             <tr>
               <th>No</th>
               <th>Nama</th>
               <th>Produk</th>
+              <th>Status</th>
             </tr>
+            @forelse ($_latest as $item)
+            <tr>
+               <td>{{$loop->iteration}}</td>
+               <td>{{$item->Nama_Pemesan}}</td>
+               <td>{{$item->product->nama_produk}}</td>
+               <td>
+                @if ($item->status == 'Pending' )
+                <a href="" class="btn btn-sm btn-warning mx-2">Pending</a>
+                @elseif($item->status == 'Sukses')
+                  <a href="" class="btn btn-sm btn-success mx-2">Sukses</a>
+                @elseif($item->status == 'Gagal')
+                  <a href="" class="btn btn-sm btn-danger mx-2">Gagal</a>
+                @endif
+               </td>
+            </tr>
+            @empty
+                <tr>
+                  <td colspan="4">
+                      Data Transaksi Tidak Ada
+                  </td>
+                </tr>
+            @endforelse
           </table>
         </div>
       </div>

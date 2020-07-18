@@ -36,7 +36,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-database"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Zain-Shop</div>
+        {{-- <div class="sidebar-brand-text mx-3">Zain-Shop</div> --}}
       </a>
 
       <!-- Divider -->

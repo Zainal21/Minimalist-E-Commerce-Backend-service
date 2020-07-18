@@ -19,9 +19,9 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>UUID</th>
+                  
                   <th>Nama</th>
-                  <th>Email</th>
+                 
                   <th>Alamat</th>
                   <th>Nama Produk</th>
                   <th>Jumlah</th>
@@ -32,16 +32,28 @@
               </thead>
               
               <tbody>
+                @forelse ($transaction as $item)
                 <tr>
-                  <td>Tiger Nixon</td>
-                  <td>System Architect</td>
-                  <td>Edinburgh</td>
-                  <td>Lorem ipsum dolor sit.</td>
-                  <td>Baju</td>
-                  <td>Lorem, ipsum.</td>
-                  <td>61</td>
-                  <td><a href="" class="btn btn-sm btn-warning mx-2">Pending</a></td>
-                  <td><a href="" class="btn btn-sm btn-outline-primary mx-2 my-2"><i class="fas fa-edit"></i></a><a href="" class="btn btn-sm btn-outline-info mx-2 my-2"><i class="fas fa-eye"></i></a><a href="" class="btn btn-sm btn-outline-danger mx-2 my-2"><i class="fas fa-trash"></i></a></td>
+                  <td>{{$item->Nama_Pemesan}}</td>
+                  <td>{{$item->Alamat}}</td>
+                  <td>{{$item->product->nama_produk}}</td>
+                  <td>{{$item->Jumlah}}</td>
+                  <td>{{$item->Total_Bayar}}</td>
+                  <td>
+                    @if ($item->status == 'Pending' )
+                      <a href="" class="btn btn-sm btn-warning mx-2">Pending</a>
+                    @elseif($item->status == 'Sukses')
+                      <a href="" class="btn btn-sm btn-success mx-2">Sukses</a>
+                    @elseif($item->status == 'Gagal')
+                      <a href="" class="btn btn-sm btn-danger mx-2">Gagal</a>
+                    @endif
+                  </td>
+                <td><a href="{{url('admin/transaction/edit/'. $item->id)}}" class="btn btn-sm btn-outline-primary mx-2 my-2 rounded-circle"><i class="fas fa-edit"></i></a><a href="" class="btn btn-sm btn-outline-danger rounded-circle btn-transaksi-hapus mx-2 my-2" id="{{$item->id}}"><i class="fas fa-trash"></i></a></td>
+                  @empty
+                    <tr>
+                      <td>Data Transaksi tidak tersedia</td>
+                    </tr>
+                @endforelse
                 </tr>
               </tbody>
             </table>
