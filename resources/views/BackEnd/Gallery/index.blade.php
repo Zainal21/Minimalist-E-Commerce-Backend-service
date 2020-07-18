@@ -28,10 +28,8 @@
               </thead>
           
               <tbody>
-                <tr>
-                 @forelse ($galeri as $item)
-                     
-                 
+                @forelse ($galeri as $item)
+                <tr>   
                  <td>{{$loop->iteration}}</td>
                  <td>{{$item->product->nama_produk}}</td>
                  <td><img src="{{\Storage::url($item->foto)}}" width="150px" alt=""></td>

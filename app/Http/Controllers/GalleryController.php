@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\product_gallery;
 use Validator;
+use Storage;
 class GalleryController extends Controller
 {
     /**
@@ -53,7 +54,15 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        product_gallery::destroy($id);
+        
+       $galeri = product_gallery::find($id);
+       
+       $photo = $galeri->foto;
+       
+        if($photo){
+            Storage::delete('public/' .$photo);
+        }
+         $galeri->delete();
         return response()->json(['success' => 'Data Galeri Berhasil dihapus dari Database']);
     }
 }

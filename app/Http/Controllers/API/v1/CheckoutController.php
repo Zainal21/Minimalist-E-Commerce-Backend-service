@@ -41,8 +41,7 @@ class CheckoutController extends Controller
                 'meta' => [
                     'code' => 200,
                     'messsage' => 'Berhasil Melakukan Transaksi',
-                ],
-              
+                ],  
         ];
         return response()->json($this->vars,200);
     }

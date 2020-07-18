@@ -1,79 +1,141 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+## Minimalist E-Commerce-Backend-service
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Repo ini adalah Project(Latihan) untuk membuat API E-commerce Sederhana menggunakan laravel
 
-## About Laravel
+## API DOC
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Registar
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+> endpoint : $baseurl/v1/regiter, method : 'POST'
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Params.body:
 
-## Learning Laravel
+| key         | value     | 
+| ----------- | --------- | 
+| name        | varchar   | 
+| email       | email     | 
+| password    | password  | 
+| c_password  | password  | 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Response :
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/Apidoc/register.png)
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
+## Authentication
 
-## Contributing
+> endpoint : $baseurl/v1/regiter, method : 'POST'
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Params.body:
 
-## Code of Conduct
+| key         | data_type | 
+| ----------- | --------- | 
+| email       | email     | 
+| password    | password  | 
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Response :
 
-## Security Vulnerabilities
+![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/Apidoc/login.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Fetch All Product
+
+> endpoint : $baseurl/v1/product, method : 'GET'
+
+Params.header:
+
+| key                 | value                                 | 
+| --------------------| --------------------------------------| 
+| Content-Type        | application/x-www-form-urlencoded     | 
+| Accept              | application/json                      | 
+| Authorization       | Bearer (Token)                        | 
+
+Response :
+
+![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/Apidoc/product.png)
+
+
+## Checkout 
+
+> endpoint : $baseurl/v1/checkout, method : 'POST'
+
+Params.body, header:
+
+header:
+
+| key                 | value                                 | 
+| --------------------| --------------------------------------| 
+| Content-Type        | application/x-www-form-urlencoded     | 
+| Accept              | application/json                      | 
+| Authorization       | Bearer (Token)                        | 
+
+body:
+
+| key                 | datat_type | 
+| -----------         | ---------  | 
+| Nama_Pemesan        | String     | 
+| Alamat              | String     | 
+| Nama_Produk         | String     | 
+| Jumlah              | Integer    | 
+| Total_Bayar         | Integer    | 
+
+Response :
+
+![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/Apidoc/checkout.png)
+
+
+
+
+
+## Details Transaksi 
+
+> endpoint : $baseurl/v1/transaction-details, method : 'GET'
+
+Params.body, header:
+
+header:
+
+| key                 | value                                 | 
+| --------------------| --------------------------------------| 
+| Content-Type        | application/x-www-form-urlencoded     | 
+| Accept              | application/json                      | 
+| Authorization       | Bearer (Token)                        | 
+
+Response :
+
+![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/Apidoc/detaills.png)
+
+
+
+
+## Install
+
+Download dari branch master
+
+```
+git clone https://github.com/Zainal21/laravel-project-starter-boilerplate
+```
+
+Install composer dependencies
+
+```
+composer install
+```
+
+Copy .env.example to .env
+
+```
+cp .env.example .env
+```
+
+Generate application key
+
+```
+php artisan key:generate
+```
+
+## Catatan
+Untuk shopping cart API belum tersedia, untuk sementara di frontend bisa menggunakan localstorage
+

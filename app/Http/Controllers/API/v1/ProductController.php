@@ -58,11 +58,11 @@ class ProductController extends Controller
         }
       
         $this->vars = [
-            'meta' => [
-                'code' => 200,
-                'messsage' => 'Data Pencarian Produk Berhasil Diambil'
-            ],
-            'data' => $product
+                'meta' => [
+                    'code' => 200,
+                    'messsage' => 'Data Pencarian Produk Berhasil Diambil'
+                ],
+                'data' => $product
         ];
         return response()->json($this->vars, 200);
 

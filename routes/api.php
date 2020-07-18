@@ -18,16 +18,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/checkout', 'API\v1\CheckoutController@checkout');
-Route::get('/transcation-details/{id}', 'API\v1\CheckoutController@details');
+Route::post('v1/checkout', 'API\v1\CheckoutController@checkout');
+Route::get('v1/transcation-details/{id}', 'API\v1\CheckoutController@details');
 // 
 
-Route::post('/register', 'API\v1\AuthController@register');
-Route::post('/login', 'API\v1\AuthController@login');
+Route::post('v1/register', 'API\v1\AuthController@register');
+Route::post('v1/login', 'API\v1\AuthController@login');
 Route::group(['middleware' => 'auth:api'], function(){
-    Route::get('/product/search/', 'API\v1\ProductController@search');
-    Route::get('/product', 'API\v1\ProductController@result');
-    Route::get('/product/detail/{slug}', 'API\v1\ProductController@details');
-    Route::post('/product/add_to_cart/{id}', 'API\v1\TransactionController@addcart');
-    Route::post('/details', 'API\v1\AuthController@details');
+    Route::get('v1/product/search/', 'API\v1\ProductController@search');
+    Route::get('v1/product', 'API\v1\ProductController@result');
+    Route::get('v1/product/detail/{slug}', 'API\v1\ProductController@details');
+    Route::post('v1/product/add_to_cart/{id}', 'API\v1\TransactionController@addcart');
+    Route::post('v1/details', 'API\v1\AuthController@details');
 });
