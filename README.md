@@ -22,16 +22,15 @@ Params.body:
 
 ## Authentication
 
-> endpoint : $baseurl/v1/regiter, method : 'POST'
+> endpoint : $baseurl/v1/regiter
 
 Params.body:
 
 | key         | data_type | 
 | ----------- | --------- | 
-| email       | email     | 
-| password    | password  | 
+| email       | email     |  
+| password    | password  |            
 
-R
 
 
 ## Fetch All Product
