@@ -17,9 +17,6 @@ Params.body:
 | password    | password  | 
 | c_password  | password  | 
 
-Response :
-
-![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/master/Apidoc/register.png)
 
 
 
@@ -34,10 +31,7 @@ Params.body:
 | email       | email     | 
 | password    | password  | 
 
-Response :
-
-![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/master/Apidoc/login.png)
-
+R
 
 
 ## Fetch All Product
@@ -52,9 +46,6 @@ Params.header:
 | Accept              | application/json                      | 
 | Authorization       | Bearer (Token)                        | 
 
-Response :
-
-![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/master/Apidoc/product.png)
 
 
 ## Checkout 
@@ -81,11 +72,6 @@ body:
 | Jumlah              | Integer    | 
 | Total_Bayar         | Integer    | 
 
-Response :
-
-![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/master/Apidoc/checkout.png)
-
-
 
 
 
@@ -102,11 +88,6 @@ header:
 | Content-Type        | application/x-www-form-urlencoded     | 
 | Accept              | application/json                      | 
 | Authorization       | Bearer (Token)                        | 
-
-Response :
-
-![alt text](https://raw.githubusercontent.com/Zainal21/Minimalist-E-Commerce-Backend-service/master/Apidoc/detaills.png)
-
 
 
 
